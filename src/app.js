@@ -63,7 +63,8 @@ function getCourseNamesAndURLS(courseURL) {
             // if (el.name === "span") { // replace this with the line bellow
               if (el.name === "meta" && el.attribs.itemprop === "description") {
               // const videoName = el.children[0].data.replace(/[\/:*?"<>|]/g, ""); // replace this with the line bellow
-              const videoName = 'Lesson ' + el.parent.attribs['data-index'] + '. ' + el.attribs.content.replace(/[\/:*?"<>|]/g, "");
+              const lessonNumber = +el.parent.attribs['data-index']+1;
+              const videoName = 'Lesson ' +  lessonNumber + '. ' + el.attribs.content.replace(/[\/:*?"<>|]/g, "");
               const name = helpers.replaceAll(videoName, "Урок", "Lesson");
               names.push(name);
             }
